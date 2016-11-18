@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="myTestJS.js"></script>
+		<script type="text/javascript" src="data.js"></script>
+
+		<title>Phone Book</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-offset-5 col-lg-3">
+			<h1>Phone Book <span class="glyphicon glyphicon-phone"></span></h1>
+				<ul class="nav nav-tabs">
+					<li role="presentation" id="create" class="active"><a>Create</a></li>
+					<li role="presentation" id="contacts"><a>Contacts</a></li>
+					<li role="presentation" id="calls"><a>Calls</a></li>
+				</ul>
+			<div id="all"></div>
+				<!--<h3>Add contact</h3>-->
+				<div id="form">
+					<div class="form-group">
+						<input type="text" class="form-control" id="ac_name" placeholder="name..." required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="ac_sname">
+					</div>
+					<div class="form-group">
+						<input type="number" class="form-control" id="ac_num" required>
+					</div>
+					<button type="button" id="add" class="btn btn-primary" onclick="add()">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
