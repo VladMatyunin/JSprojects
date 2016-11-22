@@ -22,17 +22,24 @@
 					<li role="presentation" id="contacts"><a>Contacts</a></li>
 					<li role="presentation" id="calls"><a>Calls</a></li>
 				</ul>
+				<br>
+				<div class="container"><div id="search" style="width: 250px;"></div></div>
+
 			<div id="all"></div>
 				<!--<h3>Add contact</h3>-->
 				<div id="form">
+					<div id="info"></div>
+					<h4>required</h4>
 					<div class="form-group">
 						<input type="text" class="form-control" id="ac_name" placeholder="name..." required>
+						<input type="number" class="form-control" id="ac_num" required placeholder="phone...">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" id="ac_sname">
+
 					</div>
+					<h4>additional</h4>
 					<div class="form-group">
-						<input type="number" class="form-control" id="ac_num" required>
+						<input type="text" class="form-control" id="ac_sname" placeholder="surname...">
 					</div>
 					<button type="button" id="add" class="btn btn-primary" onclick="add()">Submit</button>
 				</div>
