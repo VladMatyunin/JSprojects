@@ -1,0 +1,10 @@
+extends layout
+
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action="/auth" method='post')
+    input(placeholder="place your email" name="email")
+    br
+    button(type="submit" value="sign-in")="text"

@@ -1,0 +1,19 @@
+//
+   Created by Vlad.M on 30.11.2016.
+extends layout
+
+
+block content
+    h1= title
+    p Welcome to #{title}
+    div(class="container")
+        div(class="row")
+            div(class="col-lg-5")
+                h1="Authorization"
+                form(action="/auth" method='post' class="form-group")
+                    input(placeholder="place your email" name="email" class="form-control")
+                    br
+                    input(placeholder="place your password" name="password" class="form-control")
+                    br
+                    button(type="submit" value="sign-in" class="btn btn-primary")="sign-in"
+
