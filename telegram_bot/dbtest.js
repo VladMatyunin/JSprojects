@@ -1,23 +1,14 @@
+var pgp = require("pg-promise")(/*options*/);
+var db = pgp("postgres://postgres:sa@localhost:5432/tgbot");
+
+const testObj = {
+  id : 1,
+  tg_name : 'sss',
+  name : 'test',
+  surname : 'sss'
+}
 function start(){
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(':memory:');
+db.one('INSERT INTO public."TGUsers"(id,tg_name,name,surname) VALUES (${id},${tg_name},${name},${surname})',testObj)
 
-db.serialize(function() {
-
-  db.run('CREATE TABLE lorem (info TEXT)');
-  var stmt = db.prepare('INSERT INTO lorem VALUES (?)');
-
-  for (var i = 0; i < 10; i++) {
-    stmt.run('Ipsum ' + i);
-  }
-
-  stmt.finalize();
-
-  db.each('SELECT rowid AS id, info FROM lorem', function(err, row) {
-    console.log(row.id + ': ' + row.info);
-  });
-});
-
-db.close();
 };
 module.exports = { start};
