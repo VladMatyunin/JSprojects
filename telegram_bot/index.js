@@ -1,43 +1,15 @@
 var TelegramBot = require('node-telegram-bot-api');
 var db = require('./dbtest');
-db.start();
+var constants  = require('./constants.js');
+var core = require('./routeConverter.js');
+// db.start();
     // Устанавливаем токен, который выдавал нам бот.
     var token = '352679118:AAEJcKDaw7Kr1mzxslO0d-geUgSQhRaoG3o';
     // Включить опрос сервера
     var botOptions = {
     polling: true
 };
-var mainKeyboard = {
-      reply_markup: JSON.stringify({
-        keyboard: [
-          ['About us'],
-          ['How to find us'],
-          ['Sales'],
-          ['Menu']
-        ]
-      })
-  };
 
-  var menuKeyboard = {
-      reply_markup: JSON.stringify({
-        keyboard: [
-          ['my account'],
-          ['want delivery'],
-          ['questions'],
-          ['< back']
-        ]
-      })
-  };
-
-  var accountKeyboard = {
-      reply_markup: JSON.stringify({
-        keyboard: [
-          ['my bonus'],
-          ['question'],
-          ['< back to menu']
-        ]
-      })
-  };
 let currentUser = null;
 
 var bot = new TelegramBot(token, botOptions);
@@ -57,20 +29,21 @@ bot.on('text', function(msg)
     if (currentUser===null){
         console.log("I am here");
         currentUser=msg.from.first_name;
-        bot.sendMessage(messageChatId, 'Hello, '+ currentUser, mainKeyboard);
+        bot.sendMessage(messageChatId, 'Hello, '+ currentUser, constants.MAIN_KEYBOARD);
         console.log("FINISHED");
     }
-    if (messageText === '/say') {
-        bot.sendMessage(messageChatId, 'Hello World!', mainKeyboard);
-    }
+    core.convert(msg.text,msg);
+    // if (messageText === '/say') {
+    //     bot.sendMessage(messageChatId, 'Hello World!', mainKeyboard);
+    // }
 
-    if (messageText === '< back'){
-        bot.sendMessage(messageChatId, 'Hello World!', mainKeyboard);
-    }
+    // if (messageText === '< back'){
+    //     bot.sendMessage(messageChatId, 'Hello World!', mainKeyboard);
+    // }
 
-    if(messageText === 'Menu'){
-        bot.sendMessage(messageChatId, 'Hello World!', menuKeyboard);
-    }
+    // if(messageText === 'Menu'){
+    //     bot.sendMessage(messageChatId, 'Hello World!', menuKeyboard);
+    // }
  
     console.log(msg);
 });
@@ -79,3 +52,9 @@ function sendMessageByBot(aChatId, aMessage)
 {
     bot.sendMessage(aChatId, aMessage, { caption: 'I\'m a cute bot!' });
 }
+
+function getTelegramBot(){
+    return bot;
+}
+
+module.exports = {getTelegramBot};

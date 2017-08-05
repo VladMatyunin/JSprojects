@@ -1,5 +1,5 @@
 var constants = require('./constants.js');
-var router = require('./router');
+var router = require('./router.js');
 let MAPS = new Map([
     [constants.ABOUT_KEY ,                      constants.ABOUT_ROUTE],
     [constants.HOW_TO_FIND_KEY ,                constants.HOW_TO_FIND_ROUTE],
@@ -21,3 +21,5 @@ function convert(key, msg){
     }
     else throw "Command not found";
 }
+
+module.exports = {convert};
