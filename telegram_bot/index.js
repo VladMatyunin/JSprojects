@@ -4,7 +4,7 @@ var constants  = require('./constants.js');
 var core = require('./routeConverter.js');
 // db.start();
     // Устанавливаем токен, который выдавал нам бот.
-    var token = '352679118:AAEJcKDaw7Kr1mzxslO0d-geUgSQhRaoG3o';
+    var token = '*';
     // Включить опрос сервера
     var botOptions = {
     polling: true
@@ -12,8 +12,8 @@ var core = require('./routeConverter.js');
 
 let currentUser = null;
 
-var bot = new TelegramBot(token, botOptions);
- 
+let bot = new TelegramBot(token, botOptions);
+
 bot.getMe().then(function(me)
 {
     console.log('Hello! My name is %s!', me.first_name);
@@ -53,8 +53,6 @@ function sendMessageByBot(aChatId, aMessage)
     bot.sendMessage(aChatId, aMessage, { caption: 'I\'m a cute bot!' });
 }
 
-function getTelegramBot(){
-    return bot;
-}
 
-module.exports = {getTelegramBot};
+
+module.exports.bot = bot;

@@ -1,6 +1,7 @@
-
+var index = require('./../index.js');
 var constants = require('./../constants.js');
-
+var User = require('./../models/User.js');
+var userProvider = require('./../providers/UserProvider.js');
 function handle(subRoute, msg){
     let envoke = MAPPINGS[subRoute];
     envoke(msg);
@@ -14,11 +15,15 @@ const MAPPINGS = {
 }
 
 function AboutShop(msg){
-    console.log(msg.text);
+    var bototot = index.bot;
+    var user = userProvider.CreateNewUser(new User(msg.from.first_name,msg.from.last_name,msg.from.username,0));
+    index.bot.sendMessage(msg.chat.id, 'Hello!!!!!!!', constants.MAIN_KEYBOARD);
+    
 }
 
 function HowToFindInfo(msg){
 console.log(msg.text);
+userProvider.GetUserByTelegramName(msg.from.username);
 }
 
 function ShopSales(msg){
