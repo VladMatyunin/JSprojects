@@ -22,10 +22,10 @@ ACCOUNT_BACK_TO_SUBMENU_KEY : '< back to menu',
  *  ROUTES
  *::::::::::::::::::::::::::::::::::::::::::::::::::::
  */
-ABOUT_ROUTE : '/about',
-HOW_TO_FIND_ROUTE : '/find',
-SALES_ROUTE : '/sales',
-SUB_MENU_ROUTE : '/menu',
+ABOUT_ROUTE : '/main/about',
+HOW_TO_FIND_ROUTE : '/main/find',
+SALES_ROUTE : '/main/sales',
+SUB_MENU_ROUTE : '/main/menu',
 
 
 MY_ACCOUNT_ROUTE : '/menu/account',
@@ -33,7 +33,7 @@ WANT_DELIVERY_ROUTE : '/menu/delivery',
 QUESTIONS_ROUTE : '/menu/questions',
 BACK_TO_MAIN_MENU_ROUTE : '/menu/back',
 
-ACCOUNT_MY_BONUS_ROUTE : '/menu/account/bonus',
-ACCOUNT_QUESTION_ROUTE : '/menu/account/question',
-ACCOUNT_BACK_TO_SUBMENU_ROUTE : '/menu/account/back',
+ACCOUNT_MY_BONUS_ROUTE : '/account/bonus',
+ACCOUNT_QUESTION_ROUTE : '/account/question',
+ACCOUNT_BACK_TO_SUBMENU_ROUTE : '/account/back',
 });
