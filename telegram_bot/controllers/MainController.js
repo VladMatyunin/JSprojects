@@ -1,7 +1,10 @@
-var index = require('./../index.js');
+var tgBot = require('./../index.js');
 var constants = require('./../constants.js');
 var User = require('./../models/User.js');
-var userProvider = require('./../providers/UserProvider.js');
+var UserProvider = require('./../providers/UserProvider.js');
+var StaticContentProvider = require('./../providers/StaticContentProvider.js');
+var contentProvider = new StaticContentProvider();
+
 function handle(subRoute, msg){
     let envoke = MAPPINGS[subRoute];
     envoke(msg);
@@ -15,22 +18,20 @@ const MAPPINGS = {
 }
 
 function AboutShop(msg){
-    var bototot = index.bot;
-    var user = userProvider.CreateNewUser(new User(msg.from.first_name,msg.from.last_name,msg.from.username,0));
-    index.bot.sendMessage(msg.chat.id, 'Hello!!!!!!!', constants.MAIN_KEYBOARD);
-    
+    let info = contentProvider.GetAboutInfo();
+    tgBot.bot.sendMessage(msg.chat.id, info, constants.MAIN_KEYBOARD);
 }
 
 function HowToFindInfo(msg){
-console.log(msg.text);
-userProvider.GetUserByTelegramName(msg.from.username);
+    let info = contentProvider.HowToFindUsInfo();
+    tgBot.bot.sendMessage(msg.chat.id, info, constants.MAIN_KEYBOARD);
 }
 
 function ShopSales(msg){
-console.log(msg.text);
+    console.log(msg.text);
 }
 
 function SubMenu(msg){
-console.log(msg.text);
+    tgBot.bot.sendMessage(msg.chat.id,"Our Menu", constants.MENU_KEYBOARD);
 }
 module.exports = {handle};

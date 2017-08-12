@@ -4,7 +4,7 @@ var constants  = require('./constants.js');
 var core = require('./routeConverter.js');
 // db.start();
     // Устанавливаем токен, который выдавал нам бот.
-    var token = '*';
+    var token = '352679118:AAEJcKDaw7Kr1mzxslO0d-geUgSQhRaoG3o';
     // Включить опрос сервера
     var botOptions = {
     polling: true

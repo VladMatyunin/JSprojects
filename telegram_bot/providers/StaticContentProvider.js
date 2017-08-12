@@ -1,12 +1,15 @@
-function GetAboutInfo(){
-    //TODO
+class StaticContentProvider{
+
+GetAboutInfo(){
+    return "About info";
+}
+HowToFindUsInfo(){
+    return "How to find us info";
 }
 
-function HowToFindUsInfo(){
-    //TODO
+MostAskedQuestions(){
+    return "1. Most asked questions info";
 }
 
-function MostAskedQuestions(){
-    //TODO
 }
-
+module.exports = StaticContentProvider;

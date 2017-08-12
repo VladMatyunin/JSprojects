@@ -1,4 +1,5 @@
 var constants = require('./../constants.js');
+var tgBot = require('./../index.js');
 
 function handle(subRoute, msg){
     let envoke = MAPPINGS[subRoute];
@@ -11,15 +12,15 @@ const MAPPINGS = {
 }
 
 function ShowMyBonus(msg){
-    console.log(msg.text);
+
 }
 
 function PersonalQuestion(msg){
-console.log(msg.text);
+
 }
 
 function BackToSubmenu(msg){
-console.log(msg.text);
+    tgBot.bot.sendMessage(msg.chat.id, "back to sub menu", constants.MENU_KEYBOARD);
 }
 
 module.exports = {handle};
